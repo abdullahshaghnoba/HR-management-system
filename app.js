@@ -47,10 +47,10 @@ const RanaSaleh = new Employee('1005','Rana Saleh','Development','Junior',"asset
 const HadiAhmad = new Employee('1006','Hadi Ahmad','Finance','Mid-Senior',"assets/images.jpg");
 
 
-GhaziSamer.render();
-LanaAli.render();
-TamaraAyoub.render();
-SafiWalid.render();
-OmarZaid.render();
-RanaSaleh.render();
-HadiAhmad.render();
+// GhaziSamer.render();
+// LanaAli.render();
+// TamaraAyoub.render();
+// SafiWalid.render();
+// OmarZaid.render();
+// RanaSaleh.render();
+// HadiAhmad.render();

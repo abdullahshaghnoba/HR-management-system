@@ -1,25 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css"/>
 </head>
+
 <body>
-    <header>
-        <nav>
+    <header class="header">
+        <nav class="navBar">
             <a href="./index.html">home</a>
             <a href="./accounting.html">accounting</a>
         </nav>
     </header>
     <main>
         <script src="./app.js"></script>
+        
+
+
+            <form id="formId">
+                <fieldset>
+                    <legend>Employee Information</legend>
+                    <label for="name">Full Name</label>
+                    <input type="text" name="name" id="name" placeholder="Full Name">
+
+                    <br />
+                    <br />
+
+                    <label for="Departments">Department</label>
+                    <select name="Departments" id="Departments">
+                        <option value="Administration">Administration</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Development">Development</option>
+                        <option value="Finance">Finance</option>
+                    </select>
+
+                    <br />
+                    <br />
+
+                    <label for="Level">Level</label>
+                    <select name="Level" id="Level">
+                        <option value="Junior">Junior</option>
+                        <option value="Mid-Senior">Mid-Senior</option>
+                        <option value="Senior">Senior</option>
+                    </select>
+
+                    <br />
+                    <br />
+
+                    <label for="imgUrl">image</label>
+                    <input type="text" name="imgUrl" id="imgUrl" placeholder="image path">
+
+                    <br />
+                    <br />
+
+                    <input type="submit">
+
+
+                </fieldset>
+
+            </form>
+        
+        <section id="mainSec"></section>
     </main>
     <footer>
         &copy;<p>All rights reserved</p>
-        <img src="./assets/download.jpg"/>
-        <img src="./assets/logo-facebook-png-facebook-logo-transparent-facebook-logo-images-7.png"/>
+        <img class="twitter" src="./assets/download.jpg" />
+        <img class="face" src="./assets/logo-facebook-png-facebook-logo-transparent-facebook-logo-images-7.png" />
     </footer>
+    <script src="./app2.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,47 @@
+.navBar {
+    background-color: rgb(241 215 215);
+    display: flex;
+    align-content: space-between;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.divElclass {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+    border: solid 6px;
+    background-color: #dba8a8;
+}
+
+#mainSec {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    background-color: rgb(241 215 215);
+}
+
+img.face {
+    width: 100px;
+    height: 100px;
+}
+
+img.twitter {
+    width: 100px;
+    height: 100px;
+}
+.header{
+    background-color: rgb(241 215 215);
+}
+main{
+    min-height: 100vh;
+}

@@ -1,5 +1,7 @@
 'use srict';
 
+let employeesArr = [];
+
 function Employee(fullName, department, level, imagePath) {
     this.fullName = fullName;
     this.department = department;
@@ -7,6 +9,7 @@ function Employee(fullName, department, level, imagePath) {
     this.imagePath = imagePath;
     this.employeeId = 0;
     this.salary = this.calculate();
+    employeesArr.push(this);
 }
 
 Employee.prototype.calcEmployeeId = function () {
@@ -28,65 +31,73 @@ function getRandomArrOfInts(count, min, max) {
     }
 }
 
-Employee.prototype.render = function () {
+function render() {
 
     const container = document.getElementById("mainSec");
+    container.innerHTML = '';
 
+    getEmployees();
 
-    const divEl = document.createElement('div');
-    container.appendChild(divEl);
-    divEl.classList.add("divElclass");
+    if (employeesArr == null) {
+        employeesArr = [];
+    }
+    for (let i = 0; i < employeesArr.length; i++) {
 
-    const employeeImgEl = document.createElement("img");
-    divEl.appendChild(employeeImgEl);
-    employeeImgEl.setAttribute("src", this.imagePath);
-    employeeImgEl.classList.add("employeeImgElclass");
+        const divEl = document.createElement('div');
+        container.appendChild(divEl);
+        divEl.classList.add("divElclass");
 
-    const fullNameEl = document.createElement('h4');
-    divEl.appendChild(fullNameEl);
-    fullNameEl.textContent = `Name: ${this.fullName} -ID: ${this.employeeId} `;
-    fullNameEl.classList.add("fullNameElclass");
+        const employeeImgEl = document.createElement("img");
+        divEl.appendChild(employeeImgEl);
+        employeeImgEl.setAttribute("src", employeesArr[i].imagePath);
+        employeeImgEl.classList.add("employeeImgElclass");
 
-    // const IdEl = document.createElement('h4');
-    // divEl.appendChild(IdEl);
-    // IdEl.textContent = `ID: ${this.employeeId}`;
-    // IdEl.classList.add("IdElclass");
+        const fullNameEl = document.createElement('h4');
+        divEl.appendChild(fullNameEl);
+        fullNameEl.textContent = `Name: ${employeesArr[i].fullName} -ID: ${employeesArr[i].employeeId} `;
+        fullNameEl.classList.add("fullNameElclass");
 
-    const optionsOfDepartmentEl = document.createElement('h4');
-    divEl.appendChild(optionsOfDepartmentEl);
-    optionsOfDepartmentEl.textContent = `Department: ${this.department} -Level: ${this.level}`;
-    optionsOfDepartmentEl.classList.add("optionsOfDepartmentElclass");
+        // const IdEl = document.createElement('h4');
+        // divEl.appendChild(IdEl);
+        // IdEl.textContent = `ID: ${this.employeeId}`;
+        // IdEl.classList.add("IdElclass");
 
-    // const optionsOfLevelEl = document.createElement('h4');
-    // divEl.appendChild(optionsOfLevelEl);
-    // optionsOfLevelEl.textContent = `Level: ${this.level}`;
-    // optionsOfLevelEl.classList.add("optionsOfLevelElclass");
-    
-    const salaryEl =document.createElement("h4");
-    divEl.appendChild(salaryEl);
-    salaryEl.textContent = `${this.salary}`;
+        const optionsOfDepartmentEl = document.createElement('h4');
+        divEl.appendChild(optionsOfDepartmentEl);
+        optionsOfDepartmentEl.textContent = `Department: ${employeesArr[i].department} -Level: ${employeesArr[i].level}`;
+        optionsOfDepartmentEl.classList.add("optionsOfDepartmentElclass");
+
+        // const optionsOfLevelEl = document.createElement('h4');
+        // divEl.appendChild(optionsOfLevelEl);
+        // optionsOfLevelEl.textContent = `Level: ${this.level}`;
+        // optionsOfLevelEl.classList.add("optionsOfLevelElclass");
+
+        const salaryEl = document.createElement("h4");
+        divEl.appendChild(salaryEl);
+        salaryEl.textContent = `${employeesArr[i].salary}`;
+    }
 
 }
 
 Employee.prototype.calculate = function () {
     let newSalary = 0;
-   let netSalary = 0;
+    let netSalary = 0;
     switch (this.level) {
         case "Junior":
-            newSalary = Math.floor((Math.random() * (1000-500)) + 500);
+            newSalary = Math.floor((Math.random() * (1000 - 500)) + 500);
             netSalary = newSalary - newSalary * 0.075;
             return netSalary;
-           
+
         case "Mid-Senior":
-            newSalary = Math.floor((Math.random() * (1500-1000)) + 1000);
+            newSalary = Math.floor((Math.random() * (1500 - 1000)) + 1000);
             netSalary = newSalary - newSalary * 0.075;
             return netSalary;
-           
+
         case "Senior":
-            newSalary = Math.floor((Math.random() * (2000-1500)) + 1500);
+            newSalary = Math.floor((Math.random() * (2000 - 1500)) + 1500);
             netSalary = newSalary - newSalary * 0.075;
             return netSalary;
-            
+
 
     }
 }
@@ -105,10 +116,21 @@ function addNewEmployee(event) {
 
     let employee = new Employee(employeeName, department, level, employeeimage);
     employee.calcEmployeeId();
-    employee.render();
+
+   
+    let jsonArr = JSON.stringify(employeesArr);
+    localStorage.setItem("allEmployees", jsonArr);
+    render();
+
+
 }
 
 
+function getEmployees() {
+    let jsonArr = localStorage.getItem("allEmployees");
+    employeesArr = JSON.parse(jsonArr);
+}
 
 
-
+getEmployees();
+render();

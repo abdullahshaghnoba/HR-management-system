@@ -1,4 +1,4 @@
-.header {
+.header1 {
     background-color: rgb(241 215 215);
     height: 50px;
     display: flex;
@@ -6,7 +6,6 @@
     align-content: space-around;
     justify-content: space-around;
 }
-
 
 .home {
     padding: 0px 40px 0px 00px;
@@ -20,23 +19,6 @@ a.accounting {
 }
 
 
-
-.divElclass {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: space-around;
-    align-items: center;
-    border: solid 6px;
-    background-color: #dba8a8;
-}
-
-#mainSec {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
 footer {
     display: flex;
     flex-direction: row;
@@ -47,18 +29,29 @@ footer {
     height: 50px;
 }
 
-img.face {
+img.face1 {
     width: 50px;
     height: 50px;
 }
 
-img.twitter {
+img.twitter1 {
     width: 50px;
     height: 50px;
 }
 
-main {
+table, th, td {
+    box-shadow: 3px -1px 3px #836c6c;
+    border: 5px solid;
+    width: 100%;
+    border-color: black;
+    background-color: #e9b4b4;
+}
+
+.main {
     min-height: 100vh;
-    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
     background-color: #f3c9c991;
 }
